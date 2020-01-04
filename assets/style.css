@@ -4,7 +4,8 @@ body{
 
 a {
     text-decoration: none;
-    color: black;
+    color: rgb(23, 87, 133);
+    line-height: center;
 }
 
 a:hover {
@@ -12,8 +13,18 @@ a:hover {
     color: rgb(23, 87, 133);
 }
 
-h2 {
+h4 {
     color: rgb(23, 87, 133);
+}
+
+#answerCheck{
+    margin: auto;
+}
+
+#quiz {
+    background-color: white;
+    margin-top: 5%;
+    padding: 5%;
 }
 
 #header {
