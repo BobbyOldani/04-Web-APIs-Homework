@@ -15,7 +15,6 @@ let timeLeft = 75
 //     clearInterval(timeInterval);
 // }
 
-function quizFun(){
     let rulesEl = document.createElement("p");
     let startEl = document.createElement("button");
 
@@ -111,7 +110,7 @@ function quizFun(){
                 answerCheck.textContent = "Wrong!";
                 setTimeout(function() {
                     answerCheck.textContent = "";
-                }, 1500);
+                }, 750);
 
             } else {
                 body.append(answerDiv);
@@ -119,7 +118,7 @@ function quizFun(){
                 answerCheck.textContent = "Correct!";
                 setTimeout(function() {
                     answerCheck.textContent = "";
-                }, 1500);
+                }, 750);
             }
         })
 
@@ -131,7 +130,7 @@ function quizFun(){
                 answerCheck.textContent = "Wrong!";
                 setTimeout(function() {
                     answerCheck.textContent = "";
-                }, 1500);
+                }, 750);
 
             } else {
                 body.append(answerDiv);
@@ -139,7 +138,7 @@ function quizFun(){
                 answerCheck.textContent = "Correct!";
                 setTimeout(function() {
                     answerCheck.textContent = "";
-                }, 1500);
+                }, 750);
             }
         })
 
@@ -151,7 +150,7 @@ function quizFun(){
                 answerCheck.textContent = "Wrong!";
                 setTimeout(function() {
                     answerCheck.textContent = "";
-                }, 1500);
+                }, 750);
 
             } else {
                 body.append(answerDiv);
@@ -159,7 +158,7 @@ function quizFun(){
                 answerCheck.textContent = "Correct!";
                 setTimeout(function() {
                     answerCheck.textContent = "";
-                }, 1500);
+                }, 750);
             }
         })
 
@@ -171,7 +170,7 @@ function quizFun(){
                 answerCheck.textContent = "Wrong!";
                 setTimeout(function() {
                     answerCheck.textContent = "";
-                }, 1500);
+                }, 750);
 
             } else {
                 body.append(answerDiv);
@@ -179,7 +178,7 @@ function quizFun(){
                 answerCheck.textContent = "Correct!";
                 setTimeout(function() {
                     answerCheck.textContent = "";
-                }, 1500);
+                }, 750);
             }
         })
 
@@ -194,7 +193,6 @@ function quizFun(){
             quizEl.appendChild(scoreInput);
             quizEl.appendChild(submitDiv);
             submitDiv.appendChild(submitButton);
-            //submitDiv.href = "highscores.html" //Was working before prevent default. Look into this.
             countEl.style.display = "none";
             
             scoreInput.setAttribute("id", "score-input");
@@ -208,34 +206,61 @@ function quizFun(){
 
             submitButton.addEventListener("click", function(e){
                 e.preventDefault();
+                //higherScore();
                 let input = document.querySelector("#score-input").value;
                 console.log(input);
-                localStorage.setItem("Username", input)
-                localStorage.setItem("Score", timeLeft.valueOf() + 1);
+                //localStorage.setItem("Username", input)                 // 
+                //localStorage.setItem("Score", timeLeft.valueOf() +1);   //
+                localStorage.setItem(input, timeLeft.valueOf() + 1);
                 document.location.href = "highscores.html";
-                getStorage();
                 
-                function getStorage() {
-                    let values= [],
-                    keys = Object.keys(localStorage),
-                    i = keys.length;
-
-                while ( i-- ) {
-                    values.push( localStorage.getItem(keys[i]));
-                }
-                return values;
-                }
-                
-                console.log(values);
-                
-                // let scoreSub = {
-                //     initials: input.value.trim(),
-                //     score: timeLeft.value.trim()
-                // };
-
-
                 
 
+                //NOTE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                //I can currently write my stuff to local storage. The issue I have going forward has to do with me having a seperate html document for the highscores.
+                //What I realize I should have done was create everything dynamically over the DOM. That way my script isnt having errors once im on a new page.
+                //Also my organization of this was horrible. I finally feel like I am starting to grasp JS a bit better after writing this script. I understand how my
+                //organization of functions within functions makes no sense. I realize how I could write this better and if I had enough time I beleive I could get it working
+                //100%. I intend to keep working at this and completeing it the correct way however I am stuck with this at the time being givin the due date. I put a lot of hours
+                //into this and I think that it has helped me feel like I am starting to see light at the end of the tunnel despite my progress at this time.
+
+
+            
+                // function higherScore() {
+                // quizEl.removeChild(h3El);
+                // quizEl.removeChild(finalScore);
+                // quizEl.removeChild(scoreInput);
+                // quizEl.removeChild(submitDiv);
+
+                // let scoreList = document.createElement("ol");
+                // scoreList.setAttribute("id", "score-list");
+                // quizEl.appendChild(scoreList);
+
+                    
+
+                
+                
+                
+                
+    
+                // window.addEventListener("DOMContentLoaded", function(){
+                //     let list = document.getElementById("score-list");
+                //     for (let i = 0; i < localStorage.length; i++) {
+                //         if (localStorage.key(i).indexOf(input) !== -1) {
+                //             let item = document.createElement("li");
+                //             let itemtext = document.createTextNode(localStorage.getItem(localStorage.key(i)));
+                //             item.appendChild(itemtext);
+                //             list.appendChild(item);
+                //         }
+                //     }
+
+
+                //  })
+
+                //}
+
+                // let scoreLink = document.querySelector("#scorelink");
+                // scoreLink.addEventListener("click", higherScore);
 
             })
 
@@ -249,9 +274,4 @@ function quizFun(){
         
     })
 
-
-
-}
-
-quizFun();
 
